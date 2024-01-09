@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    color: #3f51b5;
+    font-weight: bold;
+}
+
+.row {
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.row > mat-form-field {
+    width: 100%;
+}
+
+.dialog-container-action {
+    display: flex;
+    justify-content: end;
+    padding: 15px 25px;
+}
