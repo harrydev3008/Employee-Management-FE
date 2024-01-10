@@ -14,21 +14,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
-// import { MatSort, MatSortModule } from '@angular/material/sort';
-// import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { EmpAddEditComponent } from './emp-add-edit/emp-add-edit.component';
-
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EmpAddEditComponent
-  ],
+  declarations: [AppComponent, EmpAddEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,14 +41,10 @@ import {MatTableModule} from '@angular/material/table';
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
-    // MatPaginator,
-    // MatSort,
-    // MatTableDataSource,
-    // MatPaginatorModule,
-    // MatSortModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { 
-}
+export class AppModule {}

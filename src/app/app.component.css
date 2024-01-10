@@ -1,11 +1,38 @@
 .example-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
-.container {
-    padding: 20px;
+.table-container {
+  padding: 20px;
+  width: 1248px;
+  margin: auto;
 }
 
-.container mat-form-field {
-    width: 70%;
+.table-container mat-form-field {
+  width: 100%;
+}
+
+tr[mat-header-row] {
+  background: #212529;
+}
+
+th[mat-header-cell] {
+  color: white;
+  text-align: center;
+  border: solid 0.125px #eee;
+}
+
+tr[mat-row]:hover,
+tr[mat-row]:nth-child(odd):hover {
+  background-color: #c0c0c0;
+}
+
+tr[mat-row]:nth-child(odd) {
+  background-color: #eee;
+}
+
+tr[mat-row] > td:nth-child(1),
+tr[mat-row] > td:nth-child(9),
+tr[mat-row] > td:nth-child(10) {
+  text-align: center;
 }
