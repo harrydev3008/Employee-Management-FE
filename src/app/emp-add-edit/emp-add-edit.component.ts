@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Employee } from '../model/employee/employee.module';
+import { SnackbarService } from '../core/snackbar.service';
 
 @Component({
   selector: 'app-emp-add-edit',
@@ -18,6 +19,7 @@ export class EmpAddEditComponent implements OnInit {
     private _fb: FormBuilder,
     private _employeeService: EmployeeService,
     private _dialogRef: MatDialogRef<EmpAddEditComponent>,
+    private _snackBarService: SnackbarService,
     @Inject(MAT_DIALOG_DATA) public employeeData: Employee
   ) {
     this.employeeForm = this._fb.group({
@@ -52,22 +54,32 @@ export class EmpAddEditComponent implements OnInit {
     this._employeeService.addEmployee(this.employeeForm.value).subscribe({
       next: (value: any) => {
         this._dialogRef.close(true);
+        this._snackBarService.openSnackBar(
+          'New Employee Added Successfully!',
+          'Done'
+        );
       },
       error: (error: any) => {
-        alert(error.error.error_message);
+        this._snackBarService.openSnackBar(
+          `Error: ${error.error.error_message}`,
+          'Done'
+        );
       },
     });
   }
 
   updateEmployee(data: Employee) {
-    console.log(data);
-
     this._employeeService.updateEmployee(data).subscribe({
       next: (value: any) => {
         this._dialogRef.close(true);
+        this._snackBarService.openSnackBar(
+          'Employee Updated Successfully!',
+          'Done'
+        );
       },
       error: (error: any) => {
         this._dialogRef.close();
+        this._snackBarService.openSnackBar(`Error: ${error}`, 'Done');
       },
     });
   }
